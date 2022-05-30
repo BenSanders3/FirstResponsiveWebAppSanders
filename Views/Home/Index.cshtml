@@ -1,0 +1,42 @@
+﻿@model FirstResponsiveWebAppSanders.Models.AgeCalcModel
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/custom.css"/>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/popper.js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body class="m-2">
+    <h1>Age Calculator</h1>
+    <form asp-action="Index" method="post" class="form-horizontal">
+        <div asp-validation-summary="All" class="row"></div>
+        <div class="row">
+            <label asp-for="Name" class="control-label col-sm-2">Name: </label>
+            <input asp-for="Name" class="form-control col-sm-3"/>
+        </div>
+        <div class="row">
+            <label asp-for="BirthYear" class="control-label col-sm-2">Birth Year</label>
+            <input asp-for="BirthYear" class="form-control col-sm-3"/>
+        </div>
+        <div class="row">
+            <label class="ml-5">@ViewBag.ATY.ToString()</label>
+
+        </div>
+        <button type="submit">Calculate</button>
+        <a asp-action="Index">Clear</a>
+    </form>
+</body>
+</html>
